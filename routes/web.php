@@ -43,8 +43,7 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/bod', 'bods');
     Route::get('/management', 'managements');
     Route::get('/admission', 'admissions');
-    
-    Route::get('/contact', 'contacts');
+    Route::get('/notice', 'notice'); 
     Route::post('/contact', 'store_contact'); 
 
 

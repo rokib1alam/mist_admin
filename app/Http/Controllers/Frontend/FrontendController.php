@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\BOD;
 use App\Models\Why;
+use App\Models\News;
 use App\Models\About;
 use App\Models\Video;
 use App\Models\Course;
@@ -105,6 +106,9 @@ class FrontendController extends Controller
 
         return view('frontend.admission', compact('headers', 'topbars', 'why'));
     }
+
+
+
     public function contacts()
     {
         $headers = Header::where('status', '0')->get();
@@ -113,6 +117,20 @@ class FrontendController extends Controller
         $contacts = Contact::where('status', '0')->get();
         return view('frontend.contact', compact('contacts', 'headers', 'topbars', 'why'));
     }
+    
+    public function notice()
+    {
+        $headers = Header::where('status', '0')->get();
+        $topbars = Topbar::where('status', '0')->get();
+        $why = Why::where('status', '0')->get();
+        $newses = News::where('status', '0')->get();
+        return view('frontend.notice', compact('newses', 'headers', 'topbars', 'why'));
+    }
+
+
+
+
+
     public function store_contact(ContactFormRequest $request)
     {
         $validatedData = $request->validated();
