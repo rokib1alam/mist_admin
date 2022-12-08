@@ -48,11 +48,7 @@ class ContactFormRequest extends FormRequest
                 'required',
                 'string',
                 'max:800'
-            ],
-
-            'status' => [
-                'nullable'
-            ]
+            ] 
         ];
     }
 }

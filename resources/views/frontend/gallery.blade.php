@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('page_title', '|notice|')
+@section('page_title', '|Gallery|')
 @section('content')
 
     @include('layouts.include.frontend.top_header')
@@ -12,7 +12,7 @@
 
     <br />
 
-    @include('frontend.pages.notice')
+    @include('frontend.pages.gallery')
 
     @include('frontend.pages.join_us')
 

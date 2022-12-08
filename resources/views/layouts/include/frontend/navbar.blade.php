@@ -37,7 +37,7 @@
                                 <li><a href="{{ url('/') }}">Teachers Info</a></li>
                                 <li><a href="{{ url('/') }}">Students Info</a></li>
                                 <li><a href="{{ url('/') }}">Innovation</a></li>
-                                <li><a href="{{ url('/') }}">Academic Gallery</a></li>
+                                <li><a href="{{ url('/gallery') }}">Academic Gallery</a></li>
                             </ul>
                         </li>
                         <li>

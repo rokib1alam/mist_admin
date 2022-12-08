@@ -20,8 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('number');
             $table->mediumText('message')->nullable();
-            $table->tinyInteger('status')->default('0')->comment('0=visible,1=hidden');
-            $table->timestamps();
+             $table->timestamps();
         });
     }
 

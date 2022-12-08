@@ -44,7 +44,9 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/management', 'managements');
     Route::get('/admission', 'admissions');
     Route::get('/notice', 'notice'); 
+    Route::get('/contact', 'contacts'); 
     Route::post('/contact', 'store_contact'); 
+    Route::get('/gallery', 'gallery'); 
 
 
     // contact

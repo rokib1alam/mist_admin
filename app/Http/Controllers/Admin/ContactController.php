@@ -23,8 +23,7 @@ class ContactController extends Controller
     {
         $validatedData = $request->validated();
 
-        $validatedData['status'] = $request->status == true ? '1' : '0';
-
+ 
         Contact::create([
             'first_name' => $validatedData['first_name'],
             'last_name' => $validatedData['last_name'],
@@ -45,22 +44,20 @@ class ContactController extends Controller
     // {
     //     $validatedData = $request->validated();
 
-    //    $validatedData ['status'] = $request->status == true ? '1' : '0';
-
+ 
     //    Topbar::where('id',$topbar->id)->update([
     //         'title' => $validatedData['title'],
     //         'mobile' => $validatedData['mobile'],
     //         'email' => $validatedData['email'],
-    //         'status' => $validatedData['status'],
-    //     ]);
+     //     ]);
 
     //     return redirect('admin/topbars')->with('message', 'Topbars Updated Successfully');
     // }
-    // public function destroy(Contact $contact)
-    // {
-    //     $header->delete();
-    //     return redirect('frontend/pages')->with('message', 'Contact Deleted Successfully');
+    public function destroy(Contact $contact)
+    {
+        $header->delete();
+        return redirect('frontend/pages')->with('message', 'Contact Deleted Successfully');
 
-    //     return redirect('frontend/pages')->with('message', 'Something Went Wrong');
-    // }
+        return redirect('frontend/pages')->with('message', 'Something Went Wrong');
+    }
 }

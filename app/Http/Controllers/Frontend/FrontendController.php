@@ -114,8 +114,25 @@ class FrontendController extends Controller
         $headers = Header::where('status', '0')->get();
         $topbars = Topbar::where('status', '0')->get();
         $why = Why::where('status', '0')->get();
-        $contacts = Contact::where('status', '0')->get();
+        $contacts = Contact::all();
         return view('frontend.contact', compact('contacts', 'headers', 'topbars', 'why'));
+    }
+
+    public function store_contact(ContactFormRequest $request)
+    {
+        $validatedData = $request->validated();
+
+       
+
+        Contact::create([
+            'first_name' => $validatedData['first_name'],
+            'last_name' => $validatedData['last_name'],
+            'email' => $validatedData['email'],
+            'number' => $validatedData['number'],
+            'message' => $validatedData['message']
+        ]);
+
+        return redirect('/contact')->with('message', 'Message Added Successfully');
     }
     
     public function notice()
@@ -128,23 +145,18 @@ class FrontendController extends Controller
     }
 
 
-
-
-
-    public function store_contact(ContactFormRequest $request)
+    public function gallery()
     {
-        $validatedData = $request->validated();
-
-        $validatedData['status'] = $request->status == true ? '1' : '0';
-
-        Contact::create([
-            'first_name' => $validatedData['first_name'],
-            'last_name' => $validatedData['last_name'],
-            'email' => $validatedData['email'],
-            'number' => $validatedData['number'],
-            'message' => $validatedData['message'],
-        ]);
-
-        return redirect('frontend/contact')->with('message', 'Message Added Successfully');
+        $headers = Header::where('status', '0')->get();
+        $topbars = Topbar::where('status', '0')->get();
+        $why = Why::where('status', '0')->get();
+        // $newses = News::where('status', '0')->get();
+        return view('frontend.gallery', compact( 'headers', 'topbars', 'why'));
     }
+
+
+
+
+
+
 }
