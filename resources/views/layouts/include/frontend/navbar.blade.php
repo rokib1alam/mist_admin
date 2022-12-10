@@ -43,14 +43,14 @@
                         <li>
                             <a href="{{ url('/courses') }}" class="nav-link text-left">Courses</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{ url('/') }}" class="nav-link text-left">Department</a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="{{ url('/contact') }}" class="nav-link text-left">Contact</a>
                         </li>
                         <li>
-                            <a href="{{ url('/') }}" class="nav-link text-left">Notice</a>
+                            <a href="{{ url('/notice') }}" class="nav-link text-left">Notice</a>
                         </li>
 
                     </ul>

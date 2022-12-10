@@ -21,7 +21,7 @@
             0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 </style>
-<div class="container">
+<div class="container mb-5">
     <div class="row d-flex flex-wrap align-items-center" data-toggle="modal" data-target="#lightbox">
         <div class="col-12 col-md-6 col-lg-3" style="height: 300px; margin:0 0 35px 0">
             <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/231442813/original/27e952d5225aceaef4b816f146465f66e679384f/do-react-js-frontend-javascript-and-node-js-development.png"
@@ -40,7 +40,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="lightbox" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal fade " id="lightbox" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

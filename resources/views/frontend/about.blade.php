@@ -16,5 +16,7 @@
 
 @include('frontend.pages.join_us')
 
+
+
 @endsection
 

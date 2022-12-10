@@ -1,11 +1,15 @@
 
+    <@php
+        use Illuminate\Support\Str;
+    @endphp
+     
     <div class="footer">
       <div class="container pt-2">
         <div class="row text-justify">
           <div class="col-lg-6">   
-              @foreach ($abouts as $about ) 
-              <p class="mb-1"><img src="images/slider/logo-2.png" alt="Image" class="img-fluid"></p>
-              <p>{{ str::limit($about->description,251)}} </p>  
+              @foreach ($about as $abouts ) 
+              <p class="mb-1"><img src="{{asset('images/slider/logo-2.png')}}" alt="Image" class="img-fluid"></p>
+              <p>{{ str::limit($abouts->description,150)}} </p>  
               <p><a href="{{url('/about')}}">Learn More</a></p>
               @endforeach
              

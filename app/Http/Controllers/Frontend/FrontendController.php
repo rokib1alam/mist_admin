@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactFormRequest;
 
+use Illuminate\Support\Str;
+
 class FrontendController extends Controller
 {
     public function index()
@@ -29,7 +31,7 @@ class FrontendController extends Controller
         $topbars = Topbar::where('status', '0')->get();
         $why = Why::where('status', '0')->get();
         $testi = Testimonial::where('status', '0')->get();
-        $abouts = About::orderBy('id', 'asc')
+        $about = About::orderBy('id', 'asc')
             ->take(1)
             ->get();
         $video = Video::orderBy('id', 'asc')
@@ -56,7 +58,7 @@ class FrontendController extends Controller
                 ->get();
         }
 
-        return view('frontend.index', $result, compact('sliders', 'headers', 'topbars', 'why', 'course', 'testi', 'abouts', 'messages','video'));
+        return view('frontend.index', $result, compact('sliders', 'headers', 'topbars', 'why', 'course', 'testi', 'about', 'messages','video'));
     }
 
     public function create()
@@ -65,14 +67,22 @@ class FrontendController extends Controller
         $topbars = Topbar::where('status', '0')->get();
         $why = Why::where('status', '0')->get();
         $course = Course::where('status', '0')->get();
-        return view('frontend.courses', compact('headers', 'topbars', 'why', 'course'));
+
+        $about = About::orderBy('id', 'asc')
+        ->take(1)
+        ->get();
+        return view('frontend.courses', compact('headers', 'topbars', 'why', 'course', 'about'));
     }
     public function course(Course $courses)
     {
         $headers = Header::where('status', '0')->get();
         $topbars = Topbar::where('status', '0')->get();
         $why = Why::where('status', '0')->get();
-        return view('frontend.pages.course_single', compact('courses', 'headers', 'topbars', 'why'));
+
+        $about = About::orderBy('id', 'asc')
+        ->take(1)
+        ->get();
+        return view('frontend.pages.course_single', compact('courses', 'headers', 'topbars', 'why', 'about'));
     }
     public function abouts()
     {
@@ -80,7 +90,12 @@ class FrontendController extends Controller
         $topbars = Topbar::where('status', '0')->get();
         $why = Why::where('status', '0')->get();
         $abouts = About::where('status', '0')->get();
-        return view('frontend.about', compact('abouts', 'headers', 'topbars', 'why'));
+
+        $about = About::orderBy('id', 'asc')
+        ->take(1)
+        ->get();
+
+        return view('frontend.about', compact('abouts', 'headers', 'topbars', 'why','about'));
     }
     public function bods()
     {
@@ -88,7 +103,11 @@ class FrontendController extends Controller
         $topbars = Topbar::where('status', '0')->get();
         $why = Why::where('status', '0')->get();
         $bods = BOD::where('status', '0')->get();
-        return view('frontend.bod', compact('bods', 'headers', 'topbars', 'why'));
+
+        $about = About::orderBy('id', 'asc')
+            ->take(1)
+            ->get();
+        return view('frontend.bod', compact('bods', 'headers', 'topbars', 'why', 'about'));
     }
     public function managements()
     {
@@ -96,7 +115,11 @@ class FrontendController extends Controller
         $topbars = Topbar::where('status', '0')->get();
         $why = Why::where('status', '0')->get();
         $managements = Management::where('status', '0')->get();
-        return view('frontend.management', compact('managements', 'headers', 'topbars', 'why'));
+
+        $about = About::orderBy('id', 'asc')
+        ->take(1)
+        ->get();
+        return view('frontend.management', compact('managements', 'headers', 'topbars', 'why', 'about'));
     }
     public function admissions()
     {
@@ -104,7 +127,11 @@ class FrontendController extends Controller
         $topbars = Topbar::where('status', '0')->get();
         $why = Why::where('status', '0')->get();
 
-        return view('frontend.admission', compact('headers', 'topbars', 'why'));
+        $about = About::orderBy('id', 'asc')
+        ->take(1)
+        ->get();
+
+        return view('frontend.admission', compact('headers', 'topbars', 'why', 'about'));
     }
 
 
@@ -115,7 +142,11 @@ class FrontendController extends Controller
         $topbars = Topbar::where('status', '0')->get();
         $why = Why::where('status', '0')->get();
         $contacts = Contact::all();
-        return view('frontend.contact', compact('contacts', 'headers', 'topbars', 'why'));
+
+        $about = About::orderBy('id', 'asc')
+        ->take(1)
+        ->get();
+        return view('frontend.contact', compact('contacts', 'headers', 'topbars', 'why', 'about'));
     }
 
     public function store_contact(ContactFormRequest $request)
@@ -141,7 +172,11 @@ class FrontendController extends Controller
         $topbars = Topbar::where('status', '0')->get();
         $why = Why::where('status', '0')->get();
         $newses = News::where('status', '0')->get();
-        return view('frontend.notice', compact('newses', 'headers', 'topbars', 'why'));
+
+        $about = About::orderBy('id', 'asc')
+        ->take(1)
+        ->get();
+        return view('frontend.notice', compact('newses', 'headers', 'topbars', 'why', 'about'));
     }
 
 
@@ -151,7 +186,11 @@ class FrontendController extends Controller
         $topbars = Topbar::where('status', '0')->get();
         $why = Why::where('status', '0')->get();
         // $newses = News::where('status', '0')->get();
-        return view('frontend.gallery', compact( 'headers', 'topbars', 'why'));
+
+        $about = About::orderBy('id', 'asc')
+        ->take(1)
+        ->get();
+        return view('frontend.gallery', compact( 'headers', 'topbars', 'why', 'about'));
     }
 
 

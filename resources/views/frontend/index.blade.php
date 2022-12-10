@@ -15,6 +15,9 @@
     @include('frontend.pages.testimonials')
     @include('frontend.pages.news_update')
 
+
+
     @include('frontend.pages.join_us')
+    {{-- @include('layouts.include.frontend.footer') --}}
 
 @endsection
