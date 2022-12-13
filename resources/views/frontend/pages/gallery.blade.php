@@ -5,13 +5,13 @@
 -->
 <style>
     .close {
-        font - size: 1.5rem;
+        font-size: 1.5rem;
     }
 
     .col-12 img {
         opacity: 0.7;
         cursor: pointer;
- 
+
     }
 
     .col-12 img:hover {
@@ -22,25 +22,17 @@
 </style>
 
 <?php
-$index = 8;
-
 ?>
 <div class="container mb-5">
     <div class="carousol">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-inner " style="max-height: 400px">
-                <div class="carousel-item active">
-                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                        class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=932&q=80"
-                        class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                        class="d-block w-100" alt="...">
-                </div>
+            <div class="carousel-inner " style="max-height: 500px">
+                @foreach ($imgs as $i => $img)
+                    <div class="{{ $i == 0 ? 'carousel-item active' : 'carousel-item' }}">
+                        <img src="{{ $img->image }}" class="d-block w-100" alt="...">
+                    </div>
+                @endforeach
+
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
                 data-bs-slide="prev">
@@ -56,12 +48,12 @@ $index = 8;
     </div>
     <div class="img_div mt-5">
         <div class="row d-flex flex-wrap align-items-center" data-toggle="modal" data-target="#lightbox">
-            @for ($i = 0; $i < $index; $i++)
+            @foreach ($imgs as $i => $img)
                 <div class="col-12 col-md-6 col-lg-3" style="height: 200px; margin:0 0 35px 0">
-                    <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/231442813/original/27e952d5225aceaef4b816f146465f66e679384f/do-react-js-frontend-javascript-and-node-js-development.png"
-                        class="h-100 w-100" data-target="#indicators" data-slide-to="{{ $i }}" alt="" />
+                    <img src="{{ $img->image }}" class="h-100 w-100" data-target="#indicators"
+                        data-slide-to="{{ $i }}" alt="" />
                 </div>
-            @endfor
+            @endforeach
         </div>
         <!-- Modal -->
         <div class="modal fade " id="lightbox" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -70,19 +62,18 @@ $index = 8;
                 <div class="modal-content">
                     <div id="indicators" class="carousel slide" data-interval="false">
                         <ol class="carousel-indicators">
-                            @for ($i = 0; $i < $index; $i++)
+                            @foreach ($imgs as $i => $img)
                                 <li data-target="#indicators" data-slide-to="{{ $i }}" class="active"></li>
-                            @endfor
+                            @endforeach
                         </ol>
                         <div class="carousel-inner">
 
-                            @for ($i = 0; $i < $index; $i++)
+                            @foreach ($imgs as $i => $img)
                                 <div class="{{ $i == 0 ? 'carousel-item active' : 'carousel-item' }}">
-                                    <img class="d-block w-100" style="height: 600px;"
-                                        src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/231442813/original/27e952d5225aceaef4b816f146465f66e679384f/do-react-js-frontend-javascript-and-node-js-development.png"
-                                        alt=" slide">
+                                    <img class="d-block w-100" style="height: 600px;width:100%;"
+                                        src="{{ $img->image }}" alt=" slide">
                                 </div>
-                            @endfor
+                            @endforeach
 
                         </div>
                         <a class="carousel-control-prev" href="#indicators" role="button" data-slide="prev">

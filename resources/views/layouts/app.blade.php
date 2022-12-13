@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -101,12 +102,11 @@
         </nav> --}}
 
 
-
         <main class="pt-4">
             @yield('content')
 
         </main>
-      @include('layouts.include.frontend.footer')
+      
 
     </div>
 

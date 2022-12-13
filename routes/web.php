@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TopbarController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\CoursesController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ManagementController;
@@ -43,11 +44,10 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/bod', 'bods');
     Route::get('/management', 'managements');
     Route::get('/admission', 'admissions');
-    Route::get('/notice', 'notice'); 
-    Route::get('/contact', 'contacts'); 
-    Route::post('/contact', 'store_contact'); 
-    Route::get('/gallery', 'gallery'); 
-
+    Route::get('/notice', 'notice');
+    Route::get('/contact', 'contacts');
+    Route::post('/contact', 'store_contact');
+    Route::get('/gallery', 'gallery');
 
     // contact
     //Route::controller(ContactController::class)->group(function () {
@@ -58,10 +58,7 @@ Route::controller(FrontendController::class)->group(function () {
     // Route::put('contact/{contacts}', 'update');
     // Route::get('contact/{contacts}/delete', 'destroy');
     // });
-
-       
 });
-
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
@@ -178,8 +175,8 @@ Route::prefix('admin')
             Route::get('management/{managements}/edit', 'edit');
             Route::put('management/{managements}', 'update');
             Route::get('management/{managements}/delete', 'destroy');
-        });       
-         // video
+        });
+        // video
         Route::controller(VideoController::class)->group(function () {
             Route::get('video', 'index');
             Route::get('video/create', 'create');
@@ -187,5 +184,14 @@ Route::prefix('admin')
             Route::get('video/{videos}/edit', 'edit');
             Route::put('video/{videos}', 'update');
             Route::get('video/{videos}/delete', 'destroy');
+        });
+        // galleris
+        Route::controller(GalleryController::class)->group(function () {
+            Route::get('gallery', 'index');
+            Route::get('gallery/create', 'create');
+            Route::post('gallery/create', 'store');
+            Route::get('gallery/{galleris}/edit', 'edit');
+            Route::put('gallery/{galleris}', 'update');
+            Route::get('gallery/{galleris}/delete', 'destroy');
         });
     });

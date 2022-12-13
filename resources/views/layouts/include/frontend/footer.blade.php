@@ -1,5 +1,5 @@
 
-    <@php
+    @php
         use Illuminate\Support\Str;
     @endphp
      

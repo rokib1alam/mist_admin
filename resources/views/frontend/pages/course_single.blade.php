@@ -47,5 +47,6 @@
 <br/>
 
 @include('frontend.pages.join_us')
+@include('layouts.include.frontend.footer')
 
 @endsection

@@ -12,15 +12,16 @@ use App\Models\Header;
 use App\Models\Slider;
 use App\Models\Topbar;
 use App\Models\Contact;
+use App\Models\Gallery;
 use App\Models\Message;
 use App\Models\Management;
 use App\Models\Testimonial;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactFormRequest;
-
-use Illuminate\Support\Str;
 
 class FrontendController extends Controller
 {
@@ -185,12 +186,13 @@ class FrontendController extends Controller
         $headers = Header::where('status', '0')->get();
         $topbars = Topbar::where('status', '0')->get();
         $why = Why::where('status', '0')->get();
+        $imgs = Gallery::where('status', '0')->get();
         // $newses = News::where('status', '0')->get();
 
         $about = About::orderBy('id', 'asc')
         ->take(1)
         ->get();
-        return view('frontend.gallery', compact( 'headers', 'topbars', 'why', 'about'));
+        return view('frontend.gallery', compact( 'headers', 'imgs','topbars', 'why', 'about'));
     }
 
 

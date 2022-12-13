@@ -9,14 +9,9 @@
 @include('frontend.pages.about_banner_section')
 
 @include('frontend.pages.breadcam')
-
 <br/>
-
 @include('frontend.pages.about_history')
-
 @include('frontend.pages.join_us')
-
-
-
+@include('layouts.include.frontend.footer')
 @endsection
 
